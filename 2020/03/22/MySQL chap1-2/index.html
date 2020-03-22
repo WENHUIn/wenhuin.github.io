@@ -122,7 +122,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                   2020 03 0th, Sunday, 1:24 am
+                   2020-03-22 , Sun, 1:24 am
                 </p>
               
 
@@ -191,10 +191,8 @@
 <li>WHERE .. <strong>BETWEEN</strong> .. <strong>AND</strong> .. </li>
 <li>WHERE .. <strong>IS NULL</strong> 是否为空的字段</li>
 <li>WHERE .. <strong>OR</strong> .. AND (AND的优先级高于OR,可以使用括号先处理OR)</li>
-<li>与OR相当但比OR作用更快 <strong>IN</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE id IN (1002,1003,1004,1005)</span><br></pre></td></tr></table></figure></li>
-<li><strong>NOT:</strong> 否定它之后所有跟的条件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE id NOT IN (1002,1003,1004,1005)</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>与OR相当但比OR作用更快 <strong>IN</strong><pre><code>WHERE id IN (1002,1003,1004,1005)</code></pre></li>
+<li><strong>NOT:</strong> 否定它之后所有跟的条件<pre><code>WHERE id NOT IN (1002,1003,1004,1005)</code></pre></li>
 </ul>
 <hr>
 <h4 id="四-通配符"><a href="#四-通配符" class="headerlink" title="四 通配符"></a>四 通配符</h4><ul>
@@ -212,11 +210,12 @@
 <li><p>WHERE name <strong>REGEXP ‘[123] Ton ‘</strong> 名字里是1 Ton 或者 2 Ton 或者 3 Ton  【另外】<strong>[1-9]Ton 1至9 Ton</strong></p>
 </li>
 <li><p><strong>转义(escaping)</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WHERE name REGEXP &#39;.000&#39;</span><br><span class="line">名字里有1000或2000等，.匹配任意字符</span><br><span class="line">因此要搜索点，需要加上\\. 搜索-需要加上\\-</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>WHERE name REGEXP &#39;.000&#39;
+名字里有1000或2000等，.匹配任意字符
+因此要搜索点，需要加上\\. 搜索-需要加上\\-</code></pre></li>
 <li><p><strong>定位符 ^ $</strong> <br> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">REGEXP &#39;^[0-9\\.]&#39; </span><br><span class="line">^文本开始，表示文本以0-9的数字或.开头</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>REGEXP &#39;^[0-9\\.]&#39; 
+^文本开始，表示文本以0-9的数字或.开头</code></pre></li>
 </ul>
 
             </div>
@@ -224,6 +223,21 @@
             <div>
               <p>
                 
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/MySQL/">MySQL</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
+                    
+                  </span>
                 
               </p>
               
