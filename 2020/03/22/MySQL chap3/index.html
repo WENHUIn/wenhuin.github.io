@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Hui">
   <meta name="keywords" content="">
-  <title>MySQL chap3 ♦ WENHUI</title>
+  <title>MySQL chap3-4 ♦ WENHUI</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -131,7 +131,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    210 字
+                    338 字
                   </span>
                 
 
@@ -167,7 +167,7 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h4 id="inner-outer-join-内外连接"><a href="#inner-outer-join-内外连接" class="headerlink" title="inner/outer join | 内外连接"></a>inner/outer join | 内外连接</h4><pre><code># 同一个database的连接
+              <h4 id="3-inner-outer-join-内外连接"><a href="#3-inner-outer-join-内外连接" class="headerlink" title="3 inner/outer join | 内外连接"></a>3 inner/outer join | 内外连接</h4><pre><code># 同一个database的连接
 select ..
 from table1
 join table2   
@@ -200,9 +200,7 @@ from table1
 left join table2 
     on 条件
 left join table3
-    on 条件</code></pre><img src="https://raw.githubusercontent.com/WENHUIn/PostPics/master/Visual_SQL_JOINS_V2.png" srcset="/img/loading.gif" width="" height="" alt=""/>
-
-<p><br></br></p>
+    on 条件</code></pre><p><img src="https://raw.githubusercontent.com/WENHUIn/PostPics/master/Visual_SQL_JOINS_V2.png" srcset="/img/loading.gif" alt="visual_sql_joins_v2.png"></p>
 <pre><code># 将多个Table直接组合在一起 不需要使用key连接
 
 # 1. implicitly
@@ -218,8 +216,44 @@ where ..
 union
 select ..
 from ..
-where ..</code></pre><p>对应具体笔记：<a href="https://github.com/WENHUIn/LearningMySQL/blob/master/chap3.sql" target="_blank" rel="noopener">https://github.com/WENHUIn/LearningMySQL/blob/master/chap3.sql</a></p>
+where ..</code></pre><h4 id="4-Columns"><a href="#4-Columns" class="headerlink" title="4 Columns"></a>4 Columns</h4><pre><code># insert a row / multiple rows
+insert into table(
+    var1,
+    var2,
+    var3,
+    ...)
+values (
+    &quot;john&quot;,
+    &quot;smith&quot;,
+    &quot;2020-03-23&quot;,
+    ...),
+    (
+    &quot;ella&quot;,
+    &quot;k&quot;,
+    &quot;2020-33-33&quot;,
+    ...)</code></pre><pre><code># insert hierachical rows | 对母表插入行后再在子表中插入行
+ # 母表
+insert into orders (
+    customer_id,order_date,status)
+values (
+    1,&#39;2020-3-21&#39;,1);
+ # 子表
+insert into order_items
+values 
+    (LAST_INSERT_ID(), 1,1,2.95),
+    (LAST_INSERT_ID(), 2,1,5.95);</code></pre><pre><code># copy tables
+create table newtable as 
+select * from &lt;which table you wanna copy&gt;</code></pre><pre><code># update table in one row
+update table
+set ..,..,..
+where ...   # only for one row, eg. invoice_id = 1
 
+# update table in multiply rows
+# change preferences --&gt; SQL editor --&gt; turn off safe update
+update table
+set ..,..,..,
+where ...  # eg. client_id =3, client_id can repeat
+</code></pre>
             </div>
             <hr>
             <div>
@@ -420,7 +454,7 @@ where ..</code></pre><p>对应具体笔记：<a href="https://github.com/WENHUIn
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "MySQL chap3&nbsp;",
+        "MySQL chap3-4&nbsp;",
       ],
       cursorChar: "◆",
       typeSpeed: 130,
