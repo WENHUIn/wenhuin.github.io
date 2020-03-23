@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Hui">
   <meta name="keywords" content="">
-  <title>MySQL chap3-4 ♦ WENHUI</title>
+  <title>MySQL chap5-6 ♦ WENHUI</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -122,7 +122,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                   2020-03-22 , Sun, 7:52 pm
+                   2020-03-23 , Mon, 6:02 pm
                 </p>
               
 
@@ -131,7 +131,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    338 字
+                    164 字
                   </span>
                 
 
@@ -167,93 +167,48 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h4 id="3-inner-outer-join-内外连接"><a href="#3-inner-outer-join-内外连接" class="headerlink" title="3 inner/outer join | 内外连接"></a>3 inner/outer join | 内外连接</h4><pre><code># 同一个database的连接
-select ..
-from table1
-join table2   
-    on 条件
-# or 
-# join ... using () 必须有同名的key</code></pre><pre><code># 不同database的连接
-select ..
-from database1.table
-join database2.table 
-    on 条件</code></pre><pre><code># self joins 自连接
-# 同一个table里，如要向谁报道
+              <h4 id="5-amp-6-Aggregate-functions-amp-Subquery"><a href="#5-amp-6-Aggregate-functions-amp-Subquery" class="headerlink" title="5&amp;6 Aggregate functions &amp; Subquery"></a>5&amp;6 Aggregate functions &amp; Subquery</h4><pre><code># 例如 SUM(),MAX(),MIN(),AVG()
 select 
-   ...,
-   ...,
-   ...,
-from table as a
-left join table b
-    on a.XX = b.XX 
-</code></pre><pre><code># 多表连接
+  sum(var1) as newvar1,
+  avg(var2) as newvar2,
+  ...
+from table
+where ...</code></pre><pre><code># Group by / Having (after rows are grouped)
+select 
+  var1,
+  var2 as var4
+  var3
+from ...
+join ... on ...
+GROUP BYvar1,var2  # for exsiting var
+HAVING var4 &gt; 100   # after group by
+order by var1
+</code></pre><pre><code># Rollup (apply to aggregate functions)    ------------
+select                                     var2   total
+  var1 as var2,                            cash   1244
+  var3,                                    credit   10
+join ... on ...                            -      1254   --&gt; with rollup
+group by var2 WITH ROLLUP
+</code></pre><pre><code># subquery &amp; ALL (after all,the subquery has multiple results)
 select ..
 from table1
-join table2 
-    on 条件
-join table3
-    on 条件</code></pre><pre><code># 多表外连接
-# left join: 左表内容完全输出无论条件是否成立
-# right join: 右表内容完全输出无论条件是否成立
-select ..
-from table1
-left join table2 
-    on 条件
-left join table3
-    on 条件</code></pre><p><img src="https://raw.githubusercontent.com/WENHUIn/PostPics/master/Visual_SQL_JOINS_V2.png" srcset="/img/loading.gif" alt="visual_sql_joins_v2.png"></p>
-<pre><code># 将多个Table直接组合在一起 不需要使用key连接
-
-# 1. implicitly
-select *
-from shippers,products
-# 2. explicitly
-select *
-from shippers
-cross join products p </code></pre><pre><code># UNION | combine rows 
+where var1 &gt; ALL (
+    select ..
+    from table2
+    where ..)</code></pre><pre><code># IN equals = ANY
+# if IN(..) has thousands of results, 
+# you shoud use EXIST
 select ..
 from ..
-where ..
-union
-select ..
-from ..
-where ..</code></pre><h4 id="4-Columns"><a href="#4-Columns" class="headerlink" title="4 Columns"></a>4 Columns</h4><pre><code># insert a row / multiple rows
-insert into table(
-    var1,
-    var2,
-    var3,
-    ...)
-values (
-    &quot;john&quot;,
-    &quot;smith&quot;,
-    &quot;2020-03-23&quot;,
-    ...),
-    (
-    &quot;ella&quot;,
-    &quot;k&quot;,
-    &quot;2020-33-33&quot;,
-    ...)</code></pre><pre><code># insert hierachical rows | 对母表插入行后再在子表中插入行
- # 母表
-insert into orders (
-    customer_id,order_date,status)
-values (
-    1,&#39;2020-3-21&#39;,1);
- # 子表
-insert into order_items
-values 
-    (LAST_INSERT_ID(), 1,1,2.95),
-    (LAST_INSERT_ID(), 2,1,5.95);</code></pre><pre><code># copy tables
-create table newtable as 
-select * from &lt;which table you wanna copy&gt;</code></pre><pre><code># update table in one row
-update table
-set ..,..,..
-where ...   # only for one row, eg. invoice_id = 1
-
-# update table in multiply rows
-# change preferences --&gt; SQL editor --&gt; turn off safe update
-update table
-set ..,..,..,
-where ...  # eg. client_id =3, client_id can repeat
-</code></pre>
+where .. in/=ANY/EXIST ..</code></pre><pre><code># correlated subquery 同一个表
+# get invoices that are larger than the client&#39;s avg invoice_total
+select *
+from invoices 
+where invoice_total &gt; (
+       select avg(invoice_total)
+       from invoices i
+       where i.client_id  = client_id);
+</code></pre><pre><code># select &amp; from also have subquery</code></pre>
             </div>
             <hr>
             <div>
@@ -286,8 +241,8 @@ where ...  # eg. client_id =3, client_id can repeat
                   <div class="post-next col-12 col-sm-6">
                     
                     
-                      <a href="/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/">
-                        <span>Hexo+github搭建个人网页</span>
+                      <a href="/2020/03/22/MySQL%20chap3-4/">
+                        <span>MySQL chap3-4</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
                     
@@ -454,7 +409,7 @@ where ...  # eg. client_id =3, client_id can repeat
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "MySQL chap3-4&nbsp;",
+        "MySQL chap5-6&nbsp;",
       ],
       cursorChar: "◆",
       typeSpeed: 130,

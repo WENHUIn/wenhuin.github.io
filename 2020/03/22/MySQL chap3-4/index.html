@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Hui">
   <meta name="keywords" content="">
-  <title>Hexo+github搭建个人网页 ♦ WENHUI</title>
+  <title>MySQL chap3-4 ♦ WENHUI</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -122,7 +122,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                   2020-03-22 , Sun, 1:25 am
+                   2020-03-22 , Sun, 7:52 pm
                 </p>
               
 
@@ -131,7 +131,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    862 字
+                    338 字
                   </span>
                 
 
@@ -139,7 +139,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      3 分钟
+                      1 分钟
                   </span>
                 
 
@@ -167,78 +167,111 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h5 id="●-序"><a href="#●-序" class="headerlink" title="● 序"></a>● 序</h5><p>花了我一天的时间去学，别看教程简单，过程遇到的问题真是错综复杂毕竟咱也不是专门写代码的，随便一个就让人想放弃，还好大部分我都找到了解决方法，但仍然要继续进行探索。特此第一篇Post记录一下建站过程及看tutorial的笔记 :)</p>
-<p><strong>准备</strong>：vsc,github,有道云笔记 or 其他markdown的编写器</p>
-<h5 id="I-安装hexo-（让我非常之无语的第一步）"><a href="#I-安装hexo-（让我非常之无语的第一步）" class="headerlink" title="I 安装hexo （让我非常之无语的第一步）"></a>I 安装hexo （让我非常之无语的第一步）</h5><p>(<a href="https://hexo.io/zh-cn/docs/）" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/）</a></p>
-<p>直接按照这个步骤安装Node.js和Git。作为OS Catalina的用户非常之无语，因为这两个的安装包不是双击就能打开，<strong>一定要右键选择open with installation</strong> 才能安装。（劝退1）</p>
-<p>接着是安装hexo,在终端terminal里运行。官方给的口令我现在都混乱了不知道是对还是错（<em>而且切记不要复制$，那个是terminal自带的，只要复制后面的命令就可以了</em>），因为我一安装就出现ERROR EACCES ,按照文档的方法也没用解决因为太难看懂了！！！于是我就跳过这个步骤了，<strong>直接用如下口令来验证是否安装了hexo</strong>。 (劝退2)</p>
-<pre><code>hexo -v</code></pre><h5 id="II-看Tutorial-非常好"><a href="#II-看Tutorial-非常好" class="headerlink" title="II 看Tutorial (非常好)"></a>II 看Tutorial (非常好)</h5><p>来自官方的教学视频，比文档读起来容易懂多了：<br><a href="https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm</a></p>
-<hr>
-<p>以下是从Tutorial 3 开始笔记：</p>
-<p><br> <strong>1. Creating new site</strong></p>
-<pre><code>hexo init &lt;你自己创建的文件名&gt;
+              <h4 id="3-inner-outer-join-内外连接"><a href="#3-inner-outer-join-内外连接" class="headerlink" title="3 inner/outer join | 内外连接"></a>3 inner/outer join | 内外连接</h4><pre><code># 同一个database的连接
+select ..
+from table1
+join table2   
+    on 条件
+# or 
+# join ... using () 必须有同名的key</code></pre><pre><code># 不同database的连接
+select ..
+from database1.table
+join database2.table 
+    on 条件</code></pre><pre><code># self joins 自连接
+# 同一个table里，如要向谁报道
+select 
+   ...,
+   ...,
+   ...,
+from table as a
+left join table b
+    on a.XX = b.XX 
+</code></pre><pre><code># 多表连接
+select ..
+from table1
+join table2 
+    on 条件
+join table3
+    on 条件</code></pre><pre><code># 多表外连接
+# left join: 左表内容完全输出无论条件是否成立
+# right join: 右表内容完全输出无论条件是否成立
+select ..
+from table1
+left join table2 
+    on 条件
+left join table3
+    on 条件</code></pre><p><img src="https://raw.githubusercontent.com/WENHUIn/PostPics/master/Visual_SQL_JOINS_V2.png" srcset="/img/loading.gif" alt="visual_sql_joins_v2.png"></p>
+<pre><code># 将多个Table直接组合在一起 不需要使用key连接
 
-并获得该提示：&#39;INFO Start blogging with Hexo!&#39;</code></pre><pre><code>cd &lt;你自己创建的文件名&gt;
-hexo server
+# 1. implicitly
+select *
+from shippers,products
+# 2. explicitly
+select *
+from shippers
+cross join products p </code></pre><pre><code># UNION | combine rows 
+select ..
+from ..
+where ..
+union
+select ..
+from ..
+where ..</code></pre><h4 id="4-Columns"><a href="#4-Columns" class="headerlink" title="4 Columns"></a>4 Columns</h4><pre><code># insert a row / multiple rows
+insert into table(
+    var1,
+    var2,
+    var3,
+    ...)
+values (
+    &quot;john&quot;,
+    &quot;smith&quot;,
+    &quot;2020-03-23&quot;,
+    ...),
+    (
+    &quot;ella&quot;,
+    &quot;k&quot;,
+    &quot;2020-33-33&quot;,
+    ...)</code></pre><pre><code># insert hierachical rows | 对母表插入行后再在子表中插入行
+ # 母表
+insert into orders (
+    customer_id,order_date,status)
+values (
+    1,&#39;2020-3-21&#39;,1);
+ # 子表
+insert into order_items
+values 
+    (LAST_INSERT_ID(), 1,1,2.95),
+    (LAST_INSERT_ID(), 2,1,5.95);</code></pre><pre><code># copy tables
+create table newtable as 
+select * from &lt;which table you wanna copy&gt;</code></pre><pre><code># update table in one row
+update table
+set ..,..,..
+where ...   # only for one row, eg. invoice_id = 1
 
-运行了hexo服务器并生成网站预览在 localhost:4000</code></pre><p><strong>2. Writing posts</strong></p>
-<pre><code>hexo new &lt;post name&gt;
-即可新建一个new post在_posts下</code></pre><pre><code>hexo new draft &lt;draftpost name&gt;
-即可在source里新建一个draft文件夹并生成一个draft，但draft内容不会显示在网页上
-
-hexo publish &lt;draftpost name&gt;
-即可将draft显示在网页上</code></pre><pre><code>hexo new page &lt;page name&gt;
-即可在source里新建一个page,和posts同级</code></pre><p><strong>3. Scaffolds</strong></p>
-<p>就是所有组成部分的<strong>template</strong>， 可以在对应的.md里修改模型。比如要修改post的样式，在post.md里即可进行修改。Customize your layout !!!</p>
-<p><strong>4. Tags &amp; Categories</strong></p>
-<pre><code>tags: [tag1,tag2,tag3]
-在某个post.md里直接对Tag进行添加,并在主页显示tags的分类，点击任意一个即可进入该tag分类</code></pre><pre><code>categories:
-- [catr1]
-- [catr2]
-- [catr3]
-可以用来制作目录</code></pre><p><strong>5. Assets folder</strong></p>
-<p>在_config.yml下的writting里，修改post_asset_folder: true即可激活这个功能。</p>
-<pre><code>hexo new &lt;post name&gt;
-直接创建一个post的文件在_post之下，可以拖动图片到该文件夹下
-
-{% asset_img picname.jpg 自定义图片名字 %} 显示图片
-{% asset_link picname.jpg %} 显示图片的link
-{% asset_path picname.jpg %} 显示图片的路径</code></pre><p><strong>6. Theme</strong> </p>
-<p><strong>直接下载现成主题</strong>: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-<ul>
-<li>点击自己喜欢的主题进入到该github</li>
-<li>方法1：下载到themes文件夹并解压，然后删除前面的hexo-theme文字，只保留主题名</li>
-<li>方法2：在终端使用</li>
-</ul>
-<pre><code>git clone &lt;复制的模板github路径&gt;
-缺点是目前我不知道咋放到themes下，都是再剪切过去</code></pre><ul>
-<li>修改击_config.yml里的theme为主题名即可</li>
-</ul>
-<p><strong>创建自己的主题</strong>:</p>
-<p>如果创建一个theme,则需要包括【languages,layout,scripts,source】四个文件夹</p>
-<p><strong>7. 链接github</strong></p>
-<pre><code>deploy：
-    type: git
-    repo: 你的repo完整地址
-    branch: master
-
-npm install hexo-deployer-git --save
-
-hexo clean 
-hexo g 
-hexo d</code></pre>
+# update table in multiply rows
+# change preferences --&gt; SQL editor --&gt; turn off safe update
+update table
+set ..,..,..,
+where ...  # eg. client_id =3, client_id can repeat
+</code></pre>
             </div>
             <hr>
             <div>
               <p>
                 
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/LearningMySQL/">LearningMySQL</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
                 
                   <span>
                 <i class="iconfont icon-tag"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
-                    
-                      <a class="hover-with-bg" href="/tags/github/">github</a>
+                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
                     
                   </span>
                 
@@ -249,17 +282,17 @@ hexo d</code></pre>
                   <div class="post-prev col-12 col-sm-6">
                     
                     
-                      <a href="/2020/03/22/MySQL%20chap3-4/">
+                      <a href="/2020/03/23/MySQL%20chap5-6/">
                         <i class="fa fa-chevron-left"></i>
-                        <span>MySQL chap3-4</span>
+                        <span>MySQL chap5-6</span>
                       </a>
                     
                   </div>
                   <div class="post-next col-12 col-sm-6">
                     
                     
-                      <a href="/2020/03/22/MySQL%20chap1-2/">
-                        <span>MySQL chap1-2</span>
+                      <a href="/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/">
+                        <span>Hexo+github搭建个人网页</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
                     
@@ -426,7 +459,7 @@ hexo d</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hexo+github搭建个人网页&nbsp;",
+        "MySQL chap3-4&nbsp;",
       ],
       cursorChar: "◆",
       typeSpeed: 130,
