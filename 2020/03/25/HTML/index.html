@@ -131,7 +131,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    0 字
+                    547 字
                   </span>
                 
 
@@ -139,7 +139,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      3 分钟
                   </span>
                 
 
@@ -167,14 +167,126 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              
+              <pre><code>
+# main heading
+&lt;h1&gt; .. &lt;/h1&gt; 
 
-	<div class="row">
-    <embed src="/file/HTMLbasic.pdf" width="100%" height="550" type="application/pdf">
-	</div>
+# subheadings
+&lt;h2/3/4/5/6&gt; … &lt;/h2/3/4/5/6&gt; 
+
+# paragraph
+&lt;p&gt; .. &lt;/p&gt;
+
+# commenting in html
+
+&lt;!-- 
+.. 
+--&gt;
+
+# main 
+## HTML5 tag helps search engines and other developers find the main content of your page
+
+&lt;main&gt; 
+..
+&lt;/main&gt;
+
+# images
+&lt;img src=&#39;...&#39; alt=&#39;...&#39;&gt;
+
+# a(anchor) to link to content outside your web
+
+&lt;a href=&#39;......&#39;&gt; text &lt;/a&gt;
+
+# also can be used to create internal links to jump to different sections within a page
+
+&lt;a href=&quot;#contacts-header&quot;&gt;Contacts&lt;/a&gt;
+...
+&lt;h2 id=&quot;contacts-header&quot;&gt;Contacts&lt;/h2&gt;
+
+# nest an anchor
+# target=&quot;_blank&quot;: target is an anchor tag attribute that specifies where to open the link and the value &quot;_blank&quot; specifies to open the link in a new tab
+
+&lt;p&gt;
+  Here&#39;s a &lt;a target=&quot;_blank&quot; href=&quot;http://freecodecamp.org&quot;&gt; link to freecodecamp.org&lt;/a&gt; for you to follow.
+&lt;/p&gt;
+
+# dead links 
+&lt;a href=&quot;#&quot;&quot;...&quot;&gt;
+
+# turn an image into link
+
+&lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;https://bit.ly/fcc-running-cats&quot; alt=&quot;Three kittens running towards the camera.&quot;&gt;&lt;/a&gt;
+
+# bulleted unordered list     
+&lt;ul&gt;
+  &lt;li&gt;milk&lt;/li&gt;
+  &lt;li&gt;cheese&lt;/li&gt;
+&lt;/ul&gt;
+
+# ordered list
+&lt;ol&gt;
+  &lt;li&gt;Garfield&lt;/li&gt;
+  &lt;li&gt;Sylvester&lt;/li&gt;
+&lt;/ol&gt;
+
+· fish    1. Fish
+· mouse   2. Mouse
+· cash    3. Cash
+
+# input 
+# required: must fill out before submit
+&lt;input type=&#39;text&#39; required&gt;
+
+# placeholder: what displayed in your input
+&lt;input type=&quot;text&quot; placeholder=&quot;this is placeholder text&quot;&gt;
+
+# form  ????????
+# You can build web forms that actually submit data to a server using nothing more than pure HTML
+
+&lt;form action=&#39;..&#39;&gt;&lt;/form&gt;
+
+# radio buttons ⭕️indoor ⭕️outdoor
+
+&lt;label for=&quot;indoor&quot;&gt; 
+  &lt;input id=&quot;indoor&quot; type=&quot;radio&quot; name=&quot;indoor-outdoor&quot;&gt;Indoor 
+&lt;/label&gt;
+&lt;label for=&quot;outdoor&quot;&gt; 
+  &lt;input id=&quot;outdoor&quot; type=&quot;radio&quot; name=&quot;indoor-outdoor&quot;&gt;Outdoor 
+&lt;/label&gt;
+
+# checkbox  □ loving □ boring
+
+&lt;label for=&quot;loving&quot;&gt;
+  &lt;input id=&quot;loving&quot; type=&quot;checkbox&quot; name=&quot;personality&quot;&gt;Loving
+&lt;/label&gt;
+&lt;label for=&quot;boring&quot;&gt;
+  &lt;input id=&quot;boring&quot; type=&quot;checkbox&quot; name=&quot;personality&quot;&gt; boring
+&lt;/label&gt;
+
+# set checked by default
+&lt;input type=&quot;radio&quot; name=&quot;test-name&quot; checked&gt;
+
+# div: division element, a general purpose container for other elements
+
+&lt;div&gt;
+...
+&lt;/div&gt;
+
+# decalre the doctype of an HTML
+# head &amp; body
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- Any markup with information about your page --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- page contents --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 
 
-
+</code></pre>
             </div>
             <hr>
             <div>
