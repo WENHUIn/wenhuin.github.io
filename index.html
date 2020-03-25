@@ -332,18 +332,28 @@ I 安装hexo （让我非常之无语的第一步）(https://hexo.io/zh-cn/docs/
         <div class="index-excerpt" >
           <div class="index-text mb-1">Basic 基础
 一 检索数据
-SELECT column name  FROM table 1. 多条SQL要用分号；区分 2. SQL不区分大小写 3. SQL语句多行写，便于阅读与调试
-
-选择多个列 SELECT column1，column2 FROM  table
-
-对于行，只返回不同的值 SELECT DISTINCT column FROM table
-
-限制行数 SELECT *  FROM table LIMIT numberor LIMIT 5,5 从第5行开始再往后数5行
+SELECT column nameFROM table
 
 
+多条SQL要用分号；区分
+SQL不区分大小写
+SQL语句多行写，便于阅读与调试
+
+
+选择多个列
+
+SELECT column1，column2FROM  table
+
+对于行，只返回不同的值SELECT DISTINCT columnFROM table
+
+限制行数SELECT *  FROM table 
+
+
+LIMIT numberor LIMIT 5,5 从第5行开始再往后数5行
 
 二 排序检索数据
-按多个列排序 SELECT column1,column2,column3 </div>
+按多个列排序SELECT column1,column2,column3FROM table 
+</div>
         </div>
       </a>
 
