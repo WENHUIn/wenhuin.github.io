@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>HTML/HTML5 basic</title>
+    <link href="/2020/03/25/HTML/"/>
+    <url>/2020/03/25/HTML/</url>
+    
+    <content type="html"><![CDATA[<div class="row">    <embed src="/file/HTMLbasic.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>Web design</category>
+      
+      <category>freecodecamp</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MySQL chap5-6</title>
     <link href="/2020/03/23/MySQL%20chap5-6/"/>
     <url>/2020/03/23/MySQL%20chap5-6/</url>
