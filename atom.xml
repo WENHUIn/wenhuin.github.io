@@ -1,172 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>WENHUI</title>
   
   
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-03-27T22:11:59.202Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Hui</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>Random walk visualization with python</title>
-    <link href="/2020/03/27/Randomwalk/"/>
-    <url>/2020/03/27/Randomwalk/</url>
+    <link href="http://yoursite.com/2020/03/27/Randomwalk/"/>
+    <id>http://yoursite.com/2020/03/27/Randomwalk/</id>
+    <published>2020-03-27T20:22:46.897Z</published>
+    <updated>2020-03-27T22:11:59.202Z</updated>
     
     <content type="html"><![CDATA[<pre><code># 1.import numpy import numpy as np# 2.initialize random_walk, start with 0.random_walk = [0] # 3.100 times loopfor x in range(100):    step = random_walk[-1] # last element of random_walk    dice = np.random.randint(1,7) # roll dice    if dice &lt;= 2:        step = max(0, step - 1)  # make sure step can&#39;t go below 0    elif dice &lt;= 5:        step = step + 1    else:        step = step + np.random.randint(1,7)    random_walk.append(step) # append new step to random_walk# 4.plot random_walkimport matplotlib as pltplt.plot(random_walk)plt.ylabel(&#39;steps&#39;)plt.show()</code></pre><img src="/img/randomwalk1.png" srcset="/img/loading.gif"><pre><code># 5.more random_walk all_walk = []for i in range(10) :    random_walks = [0]    for x in range(100) :        step = random_walk[-1]        dice = np.random.randint(1,7)        if dice &lt;= 2:            step = max(0, step - 1)        elif dice &lt;= 5:            step = step + 1        else:            step = step + np.random.randint(1,7)        random_walk.append(step)    all_walks.append(random_walk)# Convert all_walks to Numpy array: np_awnp_aw = np.array(all_walks)# Transpose np_aw: np_aw_tnp_aw_t = np.transpose(np_aw)# Plot np_aw_t and showplt.plot(np_aw_t)plt.xlabel(&#39;steps&#39;)plt.show()# 6.distribution of random_walk# Select last row from np_aw_t: endsends = np_aw_t[-1,:]# Plot histogram of ends, display plotplt.hist(ends)plt.show()# 7.conclusionnp.mean(ends &gt; 60)# In [4]: np.mean(ends &gt; 60)# Out[4]: 0.766# 进行500次实验后，有76.6%的可能性在最后一步登到帝国大厦60层及以上</code></pre><img src='/img/randomwalk2.png'>]]></content>
     
+    <summary type="html">
     
-    <categories>
       
-      <category>python DataAnalysis</category>
       
-    </categories>
+        &lt;pre&gt;&lt;code&gt;# 1.import numpy
+ import numpy as np
+
+# 2.initialize random_walk, start with 0.
+random_walk = [0] 
+
+# 3.100 times loop
+for x in r
+      
+    
+    </summary>
+    
+    
+      <category term="python DataAnalysis" scheme="http://yoursite.com/categories/python-DataAnalysis/"/>
     
     
   </entry>
-  
-  
   
   <entry>
     <title>HTML/HTML5 basic</title>
-    <link href="/2020/03/25/HTML/"/>
-    <url>/2020/03/25/HTML/</url>
+    <link href="http://yoursite.com/2020/03/25/HTML/"/>
+    <id>http://yoursite.com/2020/03/25/HTML/</id>
+    <published>2020-03-25T04:25:49.946Z</published>
+    <updated>2020-03-25T16:34:03.374Z</updated>
     
     <content type="html"><![CDATA[<pre><code># main heading&lt;h1&gt; .. &lt;/h1&gt; # subheadings&lt;h2/3/4/5/6&gt; … &lt;/h2/3/4/5/6&gt; # paragraph&lt;p&gt; .. &lt;/p&gt;# commenting in html&lt;!-- .. --&gt;# main ## HTML5 tag helps search engines and other developers find the main content of your page&lt;main&gt; ..&lt;/main&gt;# images&lt;img src=&#39;...&#39; alt=&#39;...&#39;&gt;# a(anchor) to link to content outside your web&lt;a href=&#39;......&#39;&gt; text &lt;/a&gt;# also can be used to create internal links to jump to different sections within a page&lt;a href=&quot;#contacts-header&quot;&gt;Contacts&lt;/a&gt;...&lt;h2 id=&quot;contacts-header&quot;&gt;Contacts&lt;/h2&gt;# nest an anchor# target=&quot;_blank&quot;: target is an anchor tag attribute that specifies where to open the link and the value &quot;_blank&quot; specifies to open the link in a new tab&lt;p&gt;  Here&#39;s a &lt;a target=&quot;_blank&quot; href=&quot;http://freecodecamp.org&quot;&gt; link to freecodecamp.org&lt;/a&gt; for you to follow.&lt;/p&gt;# dead links &lt;a href=&quot;#&quot;&quot;...&quot;&gt;# turn an image into link&lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;https://bit.ly/fcc-running-cats&quot; alt=&quot;Three kittens running towards the camera.&quot;&gt;&lt;/a&gt;# bulleted unordered list     &lt;ul&gt;  &lt;li&gt;milk&lt;/li&gt;  &lt;li&gt;cheese&lt;/li&gt;&lt;/ul&gt;# ordered list&lt;ol&gt;  &lt;li&gt;Garfield&lt;/li&gt;  &lt;li&gt;Sylvester&lt;/li&gt;&lt;/ol&gt;· fish    1. Fish· mouse   2. Mouse· cash    3. Cash# input # required: must fill out before submit&lt;input type=&#39;text&#39; required&gt;# placeholder: what displayed in your input&lt;input type=&quot;text&quot; placeholder=&quot;this is placeholder text&quot;&gt;# form  ????????# You can build web forms that actually submit data to a server using nothing more than pure HTML&lt;form action=&#39;..&#39;&gt;&lt;/form&gt;# radio buttons ⭕️indoor ⭕️outdoor&lt;label for=&quot;indoor&quot;&gt;   &lt;input id=&quot;indoor&quot; type=&quot;radio&quot; name=&quot;indoor-outdoor&quot;&gt;Indoor &lt;/label&gt;&lt;label for=&quot;outdoor&quot;&gt;   &lt;input id=&quot;outdoor&quot; type=&quot;radio&quot; name=&quot;indoor-outdoor&quot;&gt;Outdoor &lt;/label&gt;# checkbox  □ loving □ boring&lt;label for=&quot;loving&quot;&gt;  &lt;input id=&quot;loving&quot; type=&quot;checkbox&quot; name=&quot;personality&quot;&gt;Loving&lt;/label&gt;&lt;label for=&quot;boring&quot;&gt;  &lt;input id=&quot;boring&quot; type=&quot;checkbox&quot; name=&quot;personality&quot;&gt; boring&lt;/label&gt;# set checked by default&lt;input type=&quot;radio&quot; name=&quot;test-name&quot; checked&gt;# div: division element, a general purpose container for other elements&lt;div&gt;...&lt;/div&gt;# decalre the doctype of an HTML# head &amp; body&lt;!DOCTYPE html&gt;&lt;html&gt;  &lt;head&gt;    &lt;!-- Any markup with information about your page --&gt;  &lt;/head&gt;  &lt;body&gt;    &lt;!-- page contents --&gt;  &lt;/body&gt;&lt;/html&gt;</code></pre>]]></content>
     
+    <summary type="html">
     
-    <categories>
       
-      <category>Web design</category>
       
-    </categories>
+        &lt;pre&gt;&lt;code&gt;
+# main heading
+&amp;lt;h1&amp;gt; .. &amp;lt;/h1&amp;gt; 
+
+# subheadings
+&amp;lt;h2/3/4/5/6&amp;gt; … &amp;lt;/h2/3/4/5/6&amp;gt; 
+
+# paragraph
+&amp;lt;p&amp;gt; .. &amp;lt
+      
+    
+    </summary>
     
     
-    <tags>
-      
-      <tag>freecodecamp</tag>
-      
-    </tags>
+      <category term="Web design" scheme="http://yoursite.com/categories/Web-design/"/>
+    
+    
+      <category term="freecodecamp" scheme="http://yoursite.com/tags/freecodecamp/"/>
     
   </entry>
-  
-  
   
   <entry>
     <title>MySQL chap5-6</title>
-    <link href="/2020/03/23/MySQL%20chap5-6/"/>
-    <url>/2020/03/23/MySQL%20chap5-6/</url>
+    <link href="http://yoursite.com/2020/03/23/MySQL%20chap5-6/"/>
+    <id>http://yoursite.com/2020/03/23/MySQL%20chap5-6/</id>
+    <published>2020-03-23T22:02:10.501Z</published>
+    <updated>2020-03-23T22:15:37.645Z</updated>
     
     <content type="html"><![CDATA[<h4 id="5-amp-6-Aggregate-functions-amp-Subquery"><a href="#5-amp-6-Aggregate-functions-amp-Subquery" class="headerlink" title="5&amp;6 Aggregate functions &amp; Subquery"></a>5&amp;6 Aggregate functions &amp; Subquery</h4><pre><code># 例如 SUM(),MAX(),MIN(),AVG()select   sum(var1) as newvar1,  avg(var2) as newvar2,  ...from tablewhere ...</code></pre><pre><code># Group by / Having (after rows are grouped)select   var1,  var2 as var4  var3from ...join ... on ...GROUP BYvar1,var2  # for exsiting varHAVING var4 &gt; 100   # after group byorder by var1</code></pre><pre><code># Rollup (apply to aggregate functions)    ------------select                                     var2   total  var1 as var2,                            cash   1244  var3,                                    credit   10join ... on ...                            -      1254   --&gt; with rollupgroup by var2 WITH ROLLUP</code></pre><pre><code># subquery &amp; ALL (after all,the subquery has multiple results)select ..from table1where var1 &gt; ALL (    select ..    from table2    where ..)</code></pre><pre><code># IN equals = ANY# if IN(..) has thousands of results, # you shoud use EXISTselect ..from ..where .. in/=ANY/EXIST ..</code></pre><pre><code># correlated subquery 同一个表# get invoices that are larger than the client&#39;s avg invoice_totalselect *from invoices where invoice_total &gt; (       select avg(invoice_total)       from invoices i       where i.client_id  = client_id);</code></pre><pre><code># select &amp; from also have subquery</code></pre>]]></content>
     
+    <summary type="html">
     
-    <categories>
       
-      <category>LearningMySQL</category>
       
-    </categories>
+        &lt;h4 id=&quot;5-amp-6-Aggregate-functions-amp-Subquery&quot;&gt;&lt;a href=&quot;#5-amp-6-Aggregate-functions-amp-Subquery&quot; class=&quot;headerlink&quot; title=&quot;5&amp;amp;6 Aggr
+      
+    
+    </summary>
     
     
-    <tags>
-      
-      <tag>MySQL</tag>
-      
-    </tags>
+      <category term="LearningMySQL" scheme="http://yoursite.com/categories/LearningMySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
-  
-  
   
   <entry>
     <title>MySQL chap3-4</title>
-    <link href="/2020/03/22/MySQL%20chap3-4/"/>
-    <url>/2020/03/22/MySQL%20chap3-4/</url>
+    <link href="http://yoursite.com/2020/03/22/MySQL%20chap3-4/"/>
+    <id>http://yoursite.com/2020/03/22/MySQL%20chap3-4/</id>
+    <published>2020-03-22T23:52:08.947Z</published>
+    <updated>2020-03-23T22:16:20.042Z</updated>
     
     <content type="html"><![CDATA[<h4 id="3-inner-outer-join-内外连接"><a href="#3-inner-outer-join-内外连接" class="headerlink" title="3 inner/outer join | 内外连接"></a>3 inner/outer join | 内外连接</h4><pre><code># 同一个database的连接select ..from table1join table2       on 条件# or # join ... using () 必须有同名的key</code></pre><pre><code># 不同database的连接select ..from database1.tablejoin database2.table     on 条件</code></pre><pre><code># self joins 自连接# 同一个table里，如要向谁报道select    ...,   ...,   ...,from table as aleft join table b    on a.XX = b.XX </code></pre><pre><code># 多表连接select ..from table1join table2     on 条件join table3    on 条件</code></pre><pre><code># 多表外连接# left join: 左表内容完全输出无论条件是否成立# right join: 右表内容完全输出无论条件是否成立select ..from table1left join table2     on 条件left join table3    on 条件</code></pre><p><img src="https://raw.githubusercontent.com/WENHUIn/PostPics/master/Visual_SQL_JOINS_V2.png" alt="visual_sql_joins_v2.png"></p><pre><code># 将多个Table直接组合在一起 不需要使用key连接# 1. implicitlyselect *from shippers,products# 2. explicitlyselect *from shipperscross join products p </code></pre><pre><code># UNION | combine rows select ..from ..where ..unionselect ..from ..where ..</code></pre><h4 id="4-Columns"><a href="#4-Columns" class="headerlink" title="4 Columns"></a>4 Columns</h4><pre><code># insert a row / multiple rowsinsert into table(    var1,    var2,    var3,    ...)values (    &quot;john&quot;,    &quot;smith&quot;,    &quot;2020-03-23&quot;,    ...),    (    &quot;ella&quot;,    &quot;k&quot;,    &quot;2020-33-33&quot;,    ...)</code></pre><pre><code># insert hierachical rows | 对母表插入行后再在子表中插入行 # 母表insert into orders (    customer_id,order_date,status)values (    1,&#39;2020-3-21&#39;,1); # 子表insert into order_itemsvalues     (LAST_INSERT_ID(), 1,1,2.95),    (LAST_INSERT_ID(), 2,1,5.95);</code></pre><pre><code># copy tablescreate table newtable as select * from &lt;which table you wanna copy&gt;</code></pre><pre><code># update table in one rowupdate tableset ..,..,..where ...   # only for one row, eg. invoice_id = 1# update table in multiply rows# change preferences --&gt; SQL editor --&gt; turn off safe updateupdate tableset ..,..,..,where ...  # eg. client_id =3, client_id can repeat</code></pre>]]></content>
     
+    <summary type="html">
     
-    <categories>
       
-      <category>LearningMySQL</category>
       
-    </categories>
+        &lt;h4 id=&quot;3-inner-outer-join-内外连接&quot;&gt;&lt;a href=&quot;#3-inner-outer-join-内外连接&quot; class=&quot;headerlink&quot; title=&quot;3 inner/outer join | 内外连接&quot;&gt;&lt;/a&gt;3 inner/outer j
+      
+    
+    </summary>
     
     
-    <tags>
-      
-      <tag>MySQL</tag>
-      
-    </tags>
+      <category term="LearningMySQL" scheme="http://yoursite.com/categories/LearningMySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
-  
-  
   
   <entry>
     <title>Hexo+github搭建个人网页</title>
-    <link href="/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/"/>
-    <url>/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/</url>
+    <link href="http://yoursite.com/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/"/>
+    <id>http://yoursite.com/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/</id>
+    <published>2020-03-22T05:25:52.546Z</published>
+    <updated>2020-03-22T18:28:35.007Z</updated>
     
     <content type="html"><![CDATA[<h5 id="●-序"><a href="#●-序" class="headerlink" title="● 序"></a>● 序</h5><p>花了我一天的时间去学，别看教程简单，过程遇到的问题真是错综复杂毕竟咱也不是专门写代码的，随便一个就让人想放弃，还好大部分我都找到了解决方法，但仍然要继续进行探索。特此第一篇Post记录一下建站过程及看tutorial的笔记 :)</p><p><strong>准备</strong>：vsc,github,有道云笔记 or 其他markdown的编写器</p><h5 id="I-安装hexo-（让我非常之无语的第一步）"><a href="#I-安装hexo-（让我非常之无语的第一步）" class="headerlink" title="I 安装hexo （让我非常之无语的第一步）"></a>I 安装hexo （让我非常之无语的第一步）</h5><p>(<a href="https://hexo.io/zh-cn/docs/）" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/）</a></p><p>直接按照这个步骤安装Node.js和Git。作为OS Catalina的用户非常之无语，因为这两个的安装包不是双击就能打开，<strong>一定要右键选择open with installation</strong> 才能安装。（劝退1）</p><p>接着是安装hexo,在终端terminal里运行。官方给的口令我现在都混乱了不知道是对还是错（<em>而且切记不要复制$，那个是terminal自带的，只要复制后面的命令就可以了</em>），因为我一安装就出现ERROR EACCES ,按照文档的方法也没用解决因为太难看懂了！！！于是我就跳过这个步骤了，<strong>直接用如下口令来验证是否安装了hexo</strong>。 (劝退2)</p><pre><code>hexo -v</code></pre><h5 id="II-看Tutorial-非常好"><a href="#II-看Tutorial-非常好" class="headerlink" title="II 看Tutorial (非常好)"></a>II 看Tutorial (非常好)</h5><p>来自官方的教学视频，比文档读起来容易懂多了：<br><a href="https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm" target="_blank" rel="noopener">https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm</a></p><hr><p>以下是从Tutorial 3 开始笔记：</p><p><br> <strong>1. Creating new site</strong></p><pre><code>hexo init &lt;你自己创建的文件名&gt;并获得该提示：&#39;INFO Start blogging with Hexo!&#39;</code></pre><pre><code>cd &lt;你自己创建的文件名&gt;hexo server运行了hexo服务器并生成网站预览在 localhost:4000</code></pre><p><strong>2. Writing posts</strong></p><pre><code>hexo new &lt;post name&gt;即可新建一个new post在_posts下</code></pre><pre><code>hexo new draft &lt;draftpost name&gt;即可在source里新建一个draft文件夹并生成一个draft，但draft内容不会显示在网页上hexo publish &lt;draftpost name&gt;即可将draft显示在网页上</code></pre><pre><code>hexo new page &lt;page name&gt;即可在source里新建一个page,和posts同级</code></pre><p><strong>3. Scaffolds</strong></p><p>就是所有组成部分的<strong>template</strong>， 可以在对应的.md里修改模型。比如要修改post的样式，在post.md里即可进行修改。Customize your layout !!!</p><p><strong>4. Tags &amp; Categories</strong></p><pre><code>tags: [tag1,tag2,tag3]在某个post.md里直接对Tag进行添加,并在主页显示tags的分类，点击任意一个即可进入该tag分类</code></pre><pre><code>categories:- [catr1]- [catr2]- [catr3]可以用来制作目录</code></pre><p><strong>5. Assets folder</strong></p><p>在_config.yml下的writting里，修改post_asset_folder: true即可激活这个功能。</p><pre><code>hexo new &lt;post name&gt;直接创建一个post的文件在_post之下，可以拖动图片到该文件夹下{% asset_img picname.jpg 自定义图片名字 %} 显示图片{% asset_link picname.jpg %} 显示图片的link{% asset_path picname.jpg %} 显示图片的路径</code></pre><p><strong>6. Theme</strong> </p><p><strong>直接下载现成主题</strong>: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p><ul><li>点击自己喜欢的主题进入到该github</li><li>方法1：下载到themes文件夹并解压，然后删除前面的hexo-theme文字，只保留主题名</li><li>方法2：在终端使用</li></ul><pre><code>git clone &lt;复制的模板github路径&gt;缺点是目前我不知道咋放到themes下，都是再剪切过去</code></pre><ul><li>修改击_config.yml里的theme为主题名即可</li></ul><p><strong>创建自己的主题</strong>:</p><p>如果创建一个theme,则需要包括【languages,layout,scripts,source】四个文件夹</p><p><strong>7. 链接github</strong></p><pre><code>deploy：    type: git    repo: 你的repo完整地址    branch: masternpm install hexo-deployer-git --savehexo clean hexo g hexo d</code></pre>]]></content>
     
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;●-序&quot;&gt;&lt;a href=&quot;#●-序&quot; class=&quot;headerlink&quot; title=&quot;● 序&quot;&gt;&lt;/a&gt;● 序&lt;/h5&gt;&lt;p&gt;花了我一天的时间去学，别看教程简单，过程遇到的问题真是错综复杂毕竟咱也不是专门写代码的，随便一个就让人想放弃，还好大部分我都找到了解
+      
+    
+    </summary>
     
     
-    <tags>
-      
-      <tag>Hexo</tag>
-      
-      <tag>github</tag>
-      
-    </tags>
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
-  
-  
   
   <entry>
     <title>MySQL chap1-2</title>
-    <link href="/2020/03/22/MySQL%20chap1-2/"/>
-    <url>/2020/03/22/MySQL%20chap1-2/</url>
+    <link href="http://yoursite.com/2020/03/22/MySQL%20chap1-2/"/>
+    <id>http://yoursite.com/2020/03/22/MySQL%20chap1-2/</id>
+    <published>2020-03-22T05:24:09.426Z</published>
+    <updated>2020-03-25T02:10:55.011Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Basic-基础"><a href="#Basic-基础" class="headerlink" title="Basic 基础"></a>Basic 基础</h3><hr><h4 id="一-检索数据"><a href="#一-检索数据" class="headerlink" title="一 检索数据"></a>一 检索数据</h4><ul><li><strong>SELECT</strong> column name<br><strong>FROM</strong> table</li></ul><ol><li>多条SQL要用分号；区分</li><li>SQL不区分大小写</li><li>SQL语句多行写，便于阅读与调试</li></ol><ul><li><strong>选择多个列</strong></li></ul><p><strong>SELECT</strong> column1，column2<br><strong>FROM</strong>  table</p><ul><li><p><strong>对于行，只返回不同的值</strong><br>SELECT <strong>DISTINCT</strong> column<br>FROM table</p></li><li><p><strong>限制行数</strong><br>SELECT * <br> FROM table </p></li></ul><p><strong>LIMIT</strong> number<br>or <strong>LIMIT 5,5</strong> 从第5行开始再往后数5行</p><hr><h4 id="二-排序检索数据"><a href="#二-排序检索数据" class="headerlink" title="二 排序检索数据"></a>二 排序检索数据</h4><ul><li><strong>按多个列排序</strong><br>SELECT column1,column2,column3<br>FROM table </li></ul><p><strong>ORDER BY</strong> column1,column2<br>eg. order by price, name</p><ul><li><strong>降序与升序(default)</strong><br>SELECT *<br>FROM table<br>ORDER BY price <strong>DESC</strong></li><li><strong>组合</strong><br>SELECT *<br>FORM table<br>ORDER BY column DESC<br>LIMIT num</li></ul><hr><h4 id="三-过滤数据（filter-condition）"><a href="#三-过滤数据（filter-condition）" class="headerlink" title="三 过滤数据（filter condition）"></a>三 过滤数据（filter condition）</h4><ul><li>SELECT *<br>FROM table</li></ul><p><strong>WHERE</strong> + 条件</p><ul><li>&lt;&gt; 与 != 相等</li><li>WHERE .. <strong>BETWEEN</strong> .. <strong>AND</strong> .. </li><li>WHERE .. <strong>IS NULL</strong> 是否为空的字段</li><li>WHERE .. <strong>OR</strong> .. AND (AND的优先级高于OR,可以使用括号先处理OR)</li><li>与OR相当但比OR作用更快 <strong>IN</strong><pre><code>WHERE id IN (1002,1003,1004,1005)</code></pre></li><li><strong>NOT:</strong> 否定它之后所有跟的条件<pre><code>WHERE id NOT IN (1002,1003,1004,1005)</code></pre></li></ul><hr><h4 id="四-通配符"><a href="#四-通配符" class="headerlink" title="四 通配符"></a>四 通配符</h4><ul><li>WHERE .. <strong>LIKE</strong> .. 操作符</li><li><strong>( % ) 表示任何字符出现任何次数</strong><br>LIKE ‘jet%’ , ‘%ailv%’ , ‘%lad’ </li><li><strong>( _ ) 只匹配单个字符</strong><br>LIKE ‘_oney’ –&gt; honey</li><li>不要过度使用通配符</li></ul><hr><h4 id="五-正则表达-REGEXP"><a href="#五-正则表达-REGEXP" class="headerlink" title="五 正则表达 REGEXP"></a>五 正则表达 REGEXP</h4><ul><li><p>WHERE .. REGEXP .. 类似LIKE但不需要通配符</p></li><li><p>WHERE name <strong>REGEXP ‘1000|2000’</strong>    名字里有1000或2000</p></li><li><p>WHERE name <strong>REGEXP ‘[123] Ton ‘</strong> 名字里是1 Ton 或者 2 Ton 或者 3 Ton  【另外】<strong>[1-9]Ton 1至9 Ton</strong></p></li><li><p><strong>转义(escaping)</strong></p><pre><code>WHERE name REGEXP &#39;.000&#39;名字里有1000或2000等，.匹配任意字符因此要搜索点，需要加上\\. 搜索-需要加上\\-</code></pre></li><li><p><strong>定位符 ^ $</strong> <br> </p><pre><code>REGEXP &#39;^[0-9\\.]&#39; ^文本开始，表示文本以0-9的数字或.开头</code></pre></li></ul>]]></content>
     
+    <summary type="html">
     
-    <categories>
       
-      <category>LearningMySQL</category>
       
-    </categories>
+        &lt;h3 id=&quot;Basic-基础&quot;&gt;&lt;a href=&quot;#Basic-基础&quot; class=&quot;headerlink&quot; title=&quot;Basic 基础&quot;&gt;&lt;/a&gt;Basic 基础&lt;/h3&gt;&lt;hr&gt;
+&lt;h4 id=&quot;一-检索数据&quot;&gt;&lt;a href=&quot;#一-检索数据&quot; class=&quot;hea
+      
+    
+    </summary>
     
     
-    <tags>
-      
-      <tag>MySQL</tag>
-      
-    </tags>
+      <category term="LearningMySQL" scheme="http://yoursite.com/categories/LearningMySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
-  
-  
   
   <entry>
     <title>Markdown 字体</title>
-    <link href="/2020/03/22/Markdown%20%E5%AD%97%E4%BD%93/"/>
-    <url>/2020/03/22/Markdown%20%E5%AD%97%E4%BD%93/</url>
+    <link href="http://yoursite.com/2020/03/22/Markdown%20%E5%AD%97%E4%BD%93/"/>
+    <id>http://yoursite.com/2020/03/22/Markdown%20%E5%AD%97%E4%BD%93/</id>
+    <published>2020-03-22T05:24:00.036Z</published>
+    <updated>2020-03-25T04:24:17.157Z</updated>
     
     <content type="html"><![CDATA[<h4 id="I-空格"><a href="#I-空格" class="headerlink" title="I 空格"></a><strong>I 空格</strong></h4><pre><code>&amp;nbsp; # 代表一个空格键的空格 &amp;ensp;# 代表半形空格，宽度为1/2个汉字&amp;emsp;# 代表全形空格，宽度为1个汉字，等于2个空格</code></pre><p>&nbsp;代表一个空格键的空格 </p><p>&ensp;代表半形空格，宽度为1/2个汉字</p><p>&emsp;代表全形空格，宽度为1个汉字，等于2个空格</p><h4 id="II-居中"><a href="#II-居中" class="headerlink" title="II 居中"></a><strong>II 居中</strong></h4><pre><code>&lt;center&gt;内容&lt;/center&gt;</code></pre><center>内容</center><h4 id="III-字体颜色大小类型"><a href="#III-字体颜色大小类型" class="headerlink" title="III 字体颜色大小类型"></a><strong>III 字体颜色大小类型</strong></h4><pre><code>&lt;font color=&quot;&quot; size= face=&quot;&quot;&gt; 要写的内容 &lt;/font&gt;</code></pre><p><font color="#FF7F50" size=4 face="STCAIYUN"> 字体颜色大小类型 </font></p><h4 id="IV-图片大小"><a href="#IV-图片大小" class="headerlink" title="IV 图片大小"></a><strong>IV 图片大小</strong></h4><pre><code>&lt;img src=&quot;&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot;/&gt;# 图片链接，宽，高，如果图片不见了替换的显示内容</code></pre><img src="https://raw.githubusercontent.com/WENHUIn/PostPics/master/font.png" width="500" height="500" alt="图片不见了"/><h4 id="V-挑了我喜欢的几个颜色"><a href="#V-挑了我喜欢的几个颜色" class="headerlink" title="V 挑了我喜欢的几个颜色"></a><strong>V 挑了我喜欢的几个颜色</strong></h4><p>#FFC0CB<br><font color=#FFC0CB size=4> 粉红 </font></p><p>#DB7093<br><font color=#DB7093  size=4> 弱紫罗兰 </font></p><p>#8B008B<br><font color=#8B008B size=4> 深洋红 </font></p><p>#000080<br><font color=#000080 size=4> 海军蓝 </font></p><p>#1E90FF<br><font color=#1E90FF size=4> 闪蓝色 </font></p><p>#20B2AA<br><font color=#20B2AA size=4> 浅海洋绿 </font></p><p>#9ACD32<br><font color=#9ACD32 size=4> 黄绿色 </font></p><p>#FFA500<br><font color=#FFA500 size=4> 橙色 </font></p><p>#FF7F50<br><font color=#FF7F50 size=4> 珊瑚色 </font></p><p>#B22222<br><font color=#B22222 size=4> 火砖色 </font></p><h4 id="VI-字体收集"><a href="#VI-字体收集" class="headerlink" title="VI 字体收集"></a>VI 字体收集</h4><p>新细明体：PMingLiU<br>细明体：MingLiU<br>标楷体：DFKai-SB<br>黑体：SimHei<br>宋体：SimSun<br>新宋体：NSimSun<br>仿宋：FangSong<br>楷体：KaiTi<br>仿宋_GB2312：FangSong_GB2312<br>楷体_GB2312：KaiTi_GB2312<br>微软正黑体：Microsoft JhengHei<br>微软雅黑体：Microsoft YaHei </p><p>装Office会多出来的一些字体：<br>隶书：LiSu<br>幼圆：YouYuan<br>华文细黑：STXihei<br>华文楷体：STKaiti<br>华文宋体：STSong<br>华文中宋：STZhongsong<br>华文仿宋：STFangsong<br>方正舒体：FZShuTi<br>方正姚体：FZYaoti<br>华文彩云：STCaiyun<br>华文琥珀：STHupo<br>华文隶书：STLiti<br>华文行楷：STXingkai<br>华文新魏：STXinwei </p><p>苹果电脑中的字体：<br>华文细黑：STHeiti Light [STXihei]<br>华文黑体：STHeiti<br>华文楷体：STKaiti<br>华文宋体：STSong<br>华文仿宋：STFangsong<br>丽黑 Pro：LiHei Pro Medium<br>丽宋 Pro：LiSong Pro Light<br>标楷体：BiauKai<br>苹果丽中黑：Apple LiGothic Medium<br>苹果丽细宋：Apple LiSung Light<br>参考： <a href="http://prozhuchen.github.io/2015/10/05/Hexo_blog_7/" target="_blank" rel="noopener">http://prozhuchen.github.io/2015/10/05/Hexo_blog_7/</a></p>]]></content>
     
+    <summary type="html">
     
-    <categories>
       
-      <category>Markdown</category>
       
-    </categories>
+        &lt;h4 id=&quot;I-空格&quot;&gt;&lt;a href=&quot;#I-空格&quot; class=&quot;headerlink&quot; title=&quot;I 空格&quot;&gt;&lt;/a&gt;&lt;strong&gt;I 空格&lt;/strong&gt;&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&amp;amp;nbsp; 
+# 代表一个空格键的空格 
+&amp;amp;ensp;
+
+      
+    
+    </summary>
     
     
-    <tags>
-      
-      <tag>Markdown</tag>
-      
-    </tags>
+      <category term="Markdown" scheme="http://yoursite.com/categories/Markdown/"/>
+    
+    
+      <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
     
   </entry>
   
-  
-  
-  
-</search>
+</feed>

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Hui">
   <meta name="keywords" content="">
-  <title>MySQL chap1-2 ♦ WENHUI</title>
+  <title>Random walk visualization with python ♦ WENHUI</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -123,7 +123,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                   2020-03-22 , Sun, 1:24 am
+                   2020-03-27 , Fri, 4:22 pm
                 </p>
               
 
@@ -132,7 +132,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    387 字
+                    255 字
                   </span>
                 
 
@@ -168,72 +168,73 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h3 id="Basic-基础"><a href="#Basic-基础" class="headerlink" title="Basic 基础"></a>Basic 基础</h3><hr>
-<h4 id="一-检索数据"><a href="#一-检索数据" class="headerlink" title="一 检索数据"></a>一 检索数据</h4><ul>
-<li><strong>SELECT</strong> column name<br><strong>FROM</strong> table</li>
-</ul>
-<ol>
-<li>多条SQL要用分号；区分</li>
-<li>SQL不区分大小写</li>
-<li>SQL语句多行写，便于阅读与调试</li>
-</ol>
-<ul>
-<li><strong>选择多个列</strong></li>
-</ul>
-<p><strong>SELECT</strong> column1，column2<br><strong>FROM</strong>  table</p>
-<ul>
-<li><p><strong>对于行，只返回不同的值</strong><br>SELECT <strong>DISTINCT</strong> column<br>FROM table</p>
-</li>
-<li><p><strong>限制行数</strong><br>SELECT * <br> FROM table </p>
-</li>
-</ul>
-<p><strong>LIMIT</strong> number<br>or <strong>LIMIT 5,5</strong> 从第5行开始再往后数5行</p>
-<hr>
-<h4 id="二-排序检索数据"><a href="#二-排序检索数据" class="headerlink" title="二 排序检索数据"></a>二 排序检索数据</h4><ul>
-<li><strong>按多个列排序</strong><br>SELECT column1,column2,column3<br>FROM table </li>
-</ul>
-<p><strong>ORDER BY</strong> column1,column2<br>eg. order by price, name</p>
-<ul>
-<li><strong>降序与升序(default)</strong><br>SELECT *<br>FROM table<br>ORDER BY price <strong>DESC</strong></li>
-<li><strong>组合</strong><br>SELECT *<br>FORM table<br>ORDER BY column DESC<br>LIMIT num</li>
-</ul>
-<hr>
-<h4 id="三-过滤数据（filter-condition）"><a href="#三-过滤数据（filter-condition）" class="headerlink" title="三 过滤数据（filter condition）"></a>三 过滤数据（filter condition）</h4><ul>
-<li>SELECT *<br>FROM table</li>
-</ul>
-<p><strong>WHERE</strong> + 条件</p>
-<ul>
-<li>&lt;&gt; 与 != 相等</li>
-<li>WHERE .. <strong>BETWEEN</strong> .. <strong>AND</strong> .. </li>
-<li>WHERE .. <strong>IS NULL</strong> 是否为空的字段</li>
-<li>WHERE .. <strong>OR</strong> .. AND (AND的优先级高于OR,可以使用括号先处理OR)</li>
-<li>与OR相当但比OR作用更快 <strong>IN</strong><pre><code>WHERE id IN (1002,1003,1004,1005)</code></pre></li>
-<li><strong>NOT:</strong> 否定它之后所有跟的条件<pre><code>WHERE id NOT IN (1002,1003,1004,1005)</code></pre></li>
-</ul>
-<hr>
-<h4 id="四-通配符"><a href="#四-通配符" class="headerlink" title="四 通配符"></a>四 通配符</h4><ul>
-<li>WHERE .. <strong>LIKE</strong> .. 操作符</li>
-<li><strong>( % ) 表示任何字符出现任何次数</strong><br>LIKE ‘jet%’ , ‘%ailv%’ , ‘%lad’ </li>
-<li><strong>( _ ) 只匹配单个字符</strong><br>LIKE ‘_oney’ –&gt; honey</li>
-<li>不要过度使用通配符</li>
-</ul>
-<hr>
-<h4 id="五-正则表达-REGEXP"><a href="#五-正则表达-REGEXP" class="headerlink" title="五 正则表达 REGEXP"></a>五 正则表达 REGEXP</h4><ul>
-<li><p>WHERE .. REGEXP .. 类似LIKE但不需要通配符</p>
-</li>
-<li><p>WHERE name <strong>REGEXP ‘1000|2000’</strong>    名字里有1000或2000</p>
-</li>
-<li><p>WHERE name <strong>REGEXP ‘[123] Ton ‘</strong> 名字里是1 Ton 或者 2 Ton 或者 3 Ton  【另外】<strong>[1-9]Ton 1至9 Ton</strong></p>
-</li>
-<li><p><strong>转义(escaping)</strong></p>
-<pre><code>WHERE name REGEXP &#39;.000&#39;
-名字里有1000或2000等，.匹配任意字符
-因此要搜索点，需要加上\\. 搜索-需要加上\\-</code></pre></li>
-<li><p><strong>定位符 ^ $</strong> <br> </p>
-<pre><code>REGEXP &#39;^[0-9\\.]&#39; 
-^文本开始，表示文本以0-9的数字或.开头</code></pre></li>
-</ul>
+              <pre><code># 1.import numpy
+ import numpy as np
 
+# 2.initialize random_walk, start with 0.
+random_walk = [0] 
+
+# 3.100 times loop
+for x in range(100):
+    step = random_walk[-1] # last element of random_walk
+    dice = np.random.randint(1,7) # roll dice
+
+    if dice &lt;= 2:
+        step = max(0, step - 1)  # make sure step can&#39;t go below 0
+    elif dice &lt;= 5:
+        step = step + 1
+    else:
+        step = step + np.random.randint(1,7)
+
+    random_walk.append(step) # append new step to random_walk
+
+# 4.plot random_walk
+import matplotlib as plt
+plt.plot(random_walk)
+plt.ylabel(&#39;steps&#39;)
+plt.show()</code></pre><img src="/img/randomwalk1.png" srcset="/img/loading.gif">
+
+<pre><code># 5.more random_walk 
+all_walk = []
+for i in range(10) :
+    random_walks = [0]
+    for x in range(100) :
+        step = random_walk[-1]
+        dice = np.random.randint(1,7)
+        if dice &lt;= 2:
+            step = max(0, step - 1)
+        elif dice &lt;= 5:
+            step = step + 1
+        else:
+            step = step + np.random.randint(1,7)
+        random_walk.append(step)
+    all_walks.append(random_walk)
+
+# Convert all_walks to Numpy array: np_aw
+np_aw = np.array(all_walks)
+
+# Transpose np_aw: np_aw_t
+np_aw_t = np.transpose(np_aw)
+
+# Plot np_aw_t and show
+plt.plot(np_aw_t)
+plt.xlabel(&#39;steps&#39;)
+plt.show()
+
+# 6.distribution of random_walk
+# Select last row from np_aw_t: ends
+ends = np_aw_t[-1,:]
+
+# Plot histogram of ends, display plot
+plt.hist(ends)
+plt.show()
+
+# 7.conclusion
+np.mean(ends &gt; 60)
+# In [4]: np.mean(ends &gt; 60)
+# Out[4]: 0.766
+
+# 进行500次实验后，有76.6%的可能性在最后一步登到帝国大厦60层及以上</code></pre><img src='/img/randomwalk2.png'>
             </div>
             <hr>
             <div>
@@ -242,18 +243,11 @@
                   <span>
                 <i class="iconfont icon-inbox"></i>
                     
-                      <a class="hover-with-bg" href="/categories/LearningMySQL/">LearningMySQL</a>
+                      <a class="hover-with-bg" href="/categories/python-DataAnalysis/">python DataAnalysis</a>
                       &nbsp;
                     
                   </span>&nbsp;&nbsp;
                 
-                
-                  <span>
-                <i class="iconfont icon-tag"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
-                    
-                  </span>
                 
               </p>
               
@@ -262,17 +256,12 @@
                   <div class="post-prev col-12 col-sm-6">
                     
                     
-                      <a href="/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span>Hexo+github搭建个人网页</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-12 col-sm-6">
                     
                     
-                      <a href="/2020/03/22/Markdown%20%E5%AD%97%E4%BD%93/">
-                        <span>Markdown 字体</span>
+                      <a href="/2020/03/25/HTML/">
+                        <span>HTML/HTML5 basic</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
                     
@@ -439,7 +428,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "MySQL chap1-2&nbsp;",
+        "Random walk visualization with python&nbsp;",
       ],
       cursorChar: "◆",
       typeSpeed: 130,
