@@ -13,7 +13,7 @@
     
     <categories>
       
-      <category>听读</category>
+      <category>随便写写</category>
       
     </categories>
     
@@ -27,7 +27,7 @@
     <link href="/2020/03/27/Randomwalk/"/>
     <url>/2020/03/27/Randomwalk/</url>
     
-    <content type="html"><![CDATA[<pre><code># 1.import numpy import numpy as np# 2.initialize random_walk, start with 0.random_walk = [0] # 3.100 times loopfor x in range(100):    step = random_walk[-1] # last element of random_walk    dice = np.random.randint(1,7) # roll dice    if dice &lt;= 2:        step = max(0, step - 1)  # make sure step can&#39;t go below 0    elif dice &lt;= 5:        step = step + 1    else:        step = step + np.random.randint(1,7)    random_walk.append(step) # append new step to random_walk# 4.plot random_walkimport matplotlib as pltplt.plot(random_walk)plt.ylabel(&#39;steps&#39;)plt.show()</code></pre><img src="/img/randomwalk1.png" srcset="/img/loading.gif"><pre><code># 5.more random_walk all_walk = []for i in range(10) :    random_walks = [0]    for x in range(100) :        step = random_walk[-1]        dice = np.random.randint(1,7)        if dice &lt;= 2:            step = max(0, step - 1)        elif dice &lt;= 5:            step = step + 1        else:            step = step + np.random.randint(1,7)        random_walk.append(step)    all_walks.append(random_walk)# Convert all_walks to Numpy array: np_awnp_aw = np.array(all_walks)# Transpose np_aw: np_aw_tnp_aw_t = np.transpose(np_aw)# Plot np_aw_t and showplt.plot(np_aw_t)plt.xlabel(&#39;steps&#39;)plt.show()# 6.distribution of random_walk# Select last row from np_aw_t: endsends = np_aw_t[-1,:]# Plot histogram of ends, display plotplt.hist(ends)plt.show()# 7.conclusionnp.mean(ends &gt; 60)# In [4]: np.mean(ends &gt; 60)# Out[4]: 0.766# 进行500次实验后，有76.6%的可能性在最后一步登到帝国大厦60层及以上</code></pre><img src='/img/randomwalk2.png'>]]></content>
+    <content type="html"><![CDATA[<pre><code># 1.import numpy import numpy as np# 2.initialize random_walk, start with 0.random_walk = [0] # 3.100 times loopfor x in range(100):    step = random_walk[-1] # last element of random_walk    dice = np.random.randint(1,7) # roll dice    if dice &lt;= 2:        step = max(0, step - 1)  # make sure step can&#39;t go below 0    elif dice &lt;= 5:        step = step + 1    else:        step = step + np.random.randint(1,7)    random_walk.append(step) # append new step to random_walk# 4.plot random_walkimport matplotlib as pltplt.plot(random_walk)plt.ylabel(&#39;steps&#39;)plt.show()</code></pre><img src="/img/randomwalk1.png" srcset="/img/loading.gif"><pre><code># 5.more random_walk all_walk = []for i in range(10) :    random_walks = [0]    for x in range(100) :        step = random_walk[-1]        dice = np.random.randint(1,7)        if dice &lt;= 2:            step = max(0, step - 1)        elif dice &lt;= 5:            step = step + 1        else:            step = step + np.random.randint(1,7)        random_walk.append(step)    all_walks.append(random_walk)# Convert all_walks to Numpy array: np_awnp_aw = np.array(all_walks)# Transpose np_aw: np_aw_tnp_aw_t = np.transpose(np_aw)# Plot np_aw_t and showplt.plot(np_aw_t)plt.xlabel(&#39;steps&#39;)plt.show()# 6.distribution of random_walk# Select last row from np_aw_t: endsends = np_aw_t[-1,:]# Plot histogram of ends, display plotplt.hist(ends)plt.show()# 7.conclusionnp.mean(ends &gt; 60)# In [4]: np.mean(ends &gt; 60)# Out[4]: 0.766# 进行1000次实验后，有76.6%的可能性在最后一步登到帝国大厦60层及以上</code></pre><img src='/img/randomwalk2.png'>]]></content>
     
     
     <categories>
