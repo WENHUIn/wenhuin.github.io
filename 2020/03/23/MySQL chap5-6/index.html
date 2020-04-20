@@ -28,6 +28,8 @@
 
 
 
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -405,6 +407,9 @@ where invoice_total &gt; (
 
 
 
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
 
 
 
@@ -415,6 +420,14 @@ where invoice_total &gt; (
 <!-- Plugins -->
 
 
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
 
 
 

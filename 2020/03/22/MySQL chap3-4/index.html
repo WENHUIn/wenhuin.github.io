@@ -28,6 +28,8 @@
 
 
 
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -450,6 +452,9 @@ where ...  # eg. client_id =3, client_id can repeat
 
 
 
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
 
 
 
@@ -460,6 +465,14 @@ where ...  # eg. client_id =3, client_id can repeat
 <!-- Plugins -->
 
 
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  ');
+      prettyPrint();
+    })
+  </script>
 
 
 
