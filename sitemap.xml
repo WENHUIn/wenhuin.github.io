@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/</loc>
+    
+    <lastmod>2020-06-16T23:53:07.888Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2020-06-16T23:50:42.782Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/03/27/Randomwalk/</loc>
     
     <lastmod>2020-04-12T19:53:41.652Z</lastmod>
@@ -54,20 +68,6 @@
     <loc>http://yoursite.com/2020/03/23/MySQL%20chap5-6/</loc>
     
     <lastmod>2020-03-23T22:15:37.645Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2020-03-23T18:22:42.213Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2020/03/22/Hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E9%A1%B5/</loc>
-    
-    <lastmod>2020-03-22T18:28:35.007Z</lastmod>
     
   </url>
   
